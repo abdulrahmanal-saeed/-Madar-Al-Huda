@@ -9,6 +9,7 @@ Implementation updates must include: task ID, branch, changed files, commands/te
 | Field | Value |
 |---|---|
 | Task | `P00-09` — `REVIEW` (not merged) |
+| PR | [#5](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/5) (draft) |
 | Branch | `phase-00/p00-09-qa-dod`, **stacked on PR #4** (`claude/serene-galileo-f2ia01`), because it builds on that CI and edits the same tracker/AI_BRIDGE files. Merge #4 first, then retarget to `main`. |
 | Approval | Owner approved starting P00-09 in a separate branch/PR. Dependency `P00-05` (architecture approval) is still `TODO`, so the DoD is marked *proposed* and will be revised if P00-05 changes the rules. |
 
