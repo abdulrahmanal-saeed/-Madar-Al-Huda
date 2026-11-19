@@ -1,0 +1,38 @@
+# مدار الهدى | Madar Al-Huda
+
+**A free, bilingual Islamic companion for Quran, knowledge, and worship.**
+
+> Status: Phase 0 — product foundation and source verification. Not yet a released app.
+
+## Product commitments
+
+- **Platforms:** Android first; Flutter architecture ready for iOS.
+- **Languages:** Arabic (RTL) and English (LTR) from the first release.
+- **Quran:** Reading and audio recitations with sourced tafsir and English meanings.
+- **Knowledge:** Hadith, du'a, adhkar, comparative fiqh across the four Sunni madhhabs, lessons, prophetic stories, and articles.
+- **Daily worship:** Prayer times, Qibla, and configurable reminders; initial verification markets: United Arab Emirates and Egypt.
+- **Business model:** Always free and without advertising.
+- **Privacy:** Guest-first, no account needed for basic use; offline access wherever legally and technically permitted.
+
+## Selected initial content (rights pending verification)
+
+- **Reciters:** Maher Al-Muaiqly, Mahmoud Ali Al-Banna, Islam Sobhi.
+- **Tafsir:** Jami' al-Bayan (al-Tabari), Tafsir al-Qur'an al-'Azim (Ibn Kathir).
+
+**Important:** Do not ingest or redistribute content before checking the precise source, edition, integrity, reuse rights, and attribution. No unreviewed religious rulings should be published.
+
+## Planned stack
+
+Flutter/Dart mobile app · Drift/SQLite local storage · Supabase/PostgreSQL backend · Next.js admin CMS. Actual versions and integrations will be pinned and validated during implementation.
+
+## Project docs
+
+See the Phase 0 foundation branch/PR for the PRD, brand, architecture, data model, editorial policy, source register, and work plan.
+
+## Security
+
+Never commit credentials, service-role keys, provider API secrets, user location histories, or copyrighted content not licensed for redistribution.
+
+## License
+
+Source-code license: **undecided**. All rights reserved until the owner selects a license. Rights to Quran text editions, recitations, tafsir, books, translations, and other third-party assets are separate from code licensing.
