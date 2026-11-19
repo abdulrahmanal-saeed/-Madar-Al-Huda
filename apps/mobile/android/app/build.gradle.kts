@@ -4,6 +4,18 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+// Distribution channel and signing come from environment variables so no
+// key material or passwords ever live in the repository (P00-11).
+//   MADAR_CHANNEL=dev            → dev build: app id suffix ".dev"
+//   MADAR_VERSION_SUFFIX         → e.g. "-dev.42" (shown in Settings/Obtainium)
+//   MADAR_SIGNING_STORE_FILE     → path to the keystore (decoded in CI)
+//   MADAR_SIGNING_STORE_PASSWORD, MADAR_SIGNING_KEY_ALIAS,
+//   MADAR_SIGNING_KEY_PASSWORD
+// Without them, release builds fall back to debug keys for local runs only.
+val madarChannel: String = System.getenv("MADAR_CHANNEL") ?: "local"
+val isDevChannel = madarChannel == "dev"
+val madarSigningStore: String? = System.getenv("MADAR_SIGNING_STORE_FILE")
+
 android {
     namespace = "com.abdulrahmanalsaeed.madaralhuda"
     compileSdk = flutter.compileSdkVersion
@@ -12,6 +24,17 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    signingConfigs {
+        if (madarSigningStore != null) {
+            create("madar") {
+                storeFile = file(madarSigningStore)
+                storePassword = System.getenv("MADAR_SIGNING_STORE_PASSWORD")
+                keyAlias = System.getenv("MADAR_SIGNING_KEY_ALIAS")
+                keyPassword = System.getenv("MADAR_SIGNING_KEY_PASSWORD")
+            }
+        }
     }
 
     defaultConfig {
@@ -28,6 +51,12 @@ android {
         // flag during build.
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        if (isDevChannel) {
+            // Installs beside (never over) a future store build.
+            applicationIdSuffix = ".dev"
+            versionNameSuffix = System.getenv("MADAR_VERSION_SUFFIX") ?: "-dev"
+        }
     }
 
     // Ship only the languages the app supports (also trims library strings).
@@ -37,9 +66,16 @@ android {
 
     buildTypes {
         release {
-            // Release signing is task P06-01. Debug keys keep local
-            // `flutter run --release` working; never upload such a build.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = when {
+                madarSigningStore != null -> signingConfigs.getByName("madar")
+                // A published dev build must always carry the fixed dev key,
+                // or installed copies could never be updated.
+                isDevChannel -> throw GradleException(
+                    "MADAR_CHANNEL=dev requires MADAR_SIGNING_* variables.",
+                )
+                // Local `flutter run --release` only. Store signing: P06-01.
+                else -> signingConfigs.getByName("debug")
+            }
         }
     }
 }

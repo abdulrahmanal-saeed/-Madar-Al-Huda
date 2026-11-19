@@ -23,6 +23,7 @@
 | `P00-08` | تعيين مراجع شرعي مؤهل للفقه | صلاحيات وإجراء اعتماد بشري قبل النشر | P00-01 |
 | `P00-09` | قواعد QA وDefinition of Done | CI وSecrets scans وتقرير PR قابل للتحقق | P00-05 |
 | `P00-10` | Prayer fixtures للإمارات ومصر | دبي وأبوظبي والقاهرة والإسكندرية واختبار DST | P00-05 |
+| `P00-11` | قناة تحديث نسخ التطوير | APK تطوير موقّع بمفتاح ثابت يُنشر كـ prerelease بعد نجاح CI على main، ويتحدث عبر Obtainium دون صلاحيات جديدة في التطبيق | P00-06 |
 
 ## QA and validation
 - flutter analyze و flutter test و Flutter Android debug build مع سجلات فعلية

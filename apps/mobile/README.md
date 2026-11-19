@@ -129,6 +129,14 @@ surfaces. UI font: IBM Plex Sans Arabic (SIL OFL 1.1, bundled with its licence),
 which covers Arabic and Latin — **not** a Quran typeface. The launcher icon is a
 provisional mark (orbit + open book), not an approved logo.
 
+## Dev builds with automatic updates
+
+Merged changes are published as signed dev APKs (app id `…madaralhuda.dev`) on
+GitHub prereleases; testers get them automatically through Obtainium. Setup and
+secrets: [`docs/DEV_UPDATES.md`](../../docs/DEV_UPDATES.md). Local release builds
+use debug keys unless the `MADAR_SIGNING_*` variables are set; `MADAR_CHANNEL=dev`
+without them fails on purpose.
+
 ## Tests
 
 | File | Covers |
