@@ -4,7 +4,7 @@ Reviewers should post actionable findings with file paths, severity and suggeste
 
 ## P00-11 / MHD-008 review checklist (dev update channel)
 
-Status: **awaiting review.** Stacked on PR #5 → #4; merge those first.
+Status: **PR #6 merged**, technical source review done; pending secrets and on-device Obtainium release/update verification.
 
 - [ ] `.github/workflows/dev-release.yml` runs only after a **successful** `Mobile CI` for a **push** to `main` (never for PRs), or on manual dispatch; no CI checks are duplicated.
 - [ ] Signing secrets are only read from `secrets.*`; the keystore is written to `$RUNNER_TEMP` and removed; nothing key-related is committed (gitleaks green).
@@ -17,7 +17,7 @@ Status: **awaiting review.** Stacked on PR #5 → #4; merge those first.
 
 ## P00-09 / MHD-007 review checklist (QA rules & DoD)
 
-Status: **awaiting review.** Stacked on PR #4; review and merge #4 first.
+Status: **PR #5 merged**; P00-09 DONE. Manual device testing described by this document remains Phase 0 / P00-06 work.
 
 - [ ] `plan/DEFINITION_OF_DONE.md` matches `plan/WORKFLOW.md`, `TEST_STRATEGY.md` and `docs/CONTENT_GOVERNANCE.md` (no contradictions).
 - [ ] The religious-content gate (§2.3) is strict enough, and the scholarly/language review requirements are correct.
@@ -33,7 +33,7 @@ _None recorded yet._
 
 ## P00-06 / MHD-001 review checklist (Flutter skeleton)
 
-Status: **awaiting independent review.** Implementation notes: [IMPLEMENTATION.md](IMPLEMENTATION.md).
+Status: **PR #4 merged after technical re-review**; on-device AR/EN, TalkBack and language-copy review remain open. Implementation notes: [IMPLEMENTATION.md](IMPLEMENTATION.md).
 
 ### Must verify
 - [ ] Mobile CI is green on the PR (secrets & policy, analyze/test, Android debug build).
@@ -55,7 +55,7 @@ Status: **awaiting independent review.** Implementation notes: [IMPLEMENTATION.m
 ### Findings
 | # | Severity | Source | Finding | Status |
 |---|---|---|---|---|
-| 1 | **Blocking** | ChatGPT review ([comment](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/4#issuecomment-7008108058)) | `SettingsController` overlapping async writes: whole-object rollback loses successful changes; same-field writes can persist out of order; schema-marker failure after a value write causes a UI/disk mismatch | **Fixed, awaiting re-review.** Serialized and coalesced writes, field-scoped rollback to the last persisted value, marker written first. 12 deterministic regression tests; the old code fails the review-scenario test. See IMPLEMENTATION.md |
+| 1 | **Blocking** | ChatGPT review ([comment](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/4#issuecomment-7008108058)) | `SettingsController` overlapping async writes: whole-object rollback loses successful changes; same-field writes can persist out of order; schema-marker failure after a value write causes a UI/disk mismatch | **Fixed, technically re-reviewed, and merged.** Serialized and coalesced writes, field-scoped rollback to the last persisted value, marker written first. 12 deterministic regression tests; the old code fails the review-scenario test. See IMPLEMENTATION.md |
 | 2 | Info | ChatGPT review | Device/emulator, TalkBack, final Arabic copy and final brand still open | Open (documented) |
 
 ---
