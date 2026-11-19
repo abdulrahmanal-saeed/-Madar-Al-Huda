@@ -1,0 +1,34 @@
+/// Route paths. Keep them stable: they double as deep-link paths.
+abstract final class AppRoutes {
+  // Tab roots (one StatefulShellBranch each, in navigation order).
+  static const String home = '/home';
+  static const String quran = '/quran';
+  static const String worship = '/worship';
+  static const String library = '/library';
+  static const String learning = '/learning';
+
+  // Quran
+  static const String mushaf = '$quran/read';
+  static const String recitations = '$quran/recitations';
+  static const String tafsir = '$quran/tafsir';
+
+  // Worship
+  static const String prayerTimes = '$worship/prayer-times';
+  static const String qibla = '$worship/qibla';
+  static const String adhkar = '$worship/adhkar';
+
+  // Library
+  static const String hadith = '$library/hadith';
+  static const String fiqh = '$library/fiqh';
+  static const String articles = '$library/articles';
+
+  // Learning
+  static const String lessons = '$learning/lessons';
+  static const String stories = '$learning/prophet-stories';
+
+  // Full-screen (outside the tab shell)
+  static const String settings = '/settings';
+
+  /// Tab roots in navigation order.
+  static const List<String> tabs = [home, quran, worship, library, learning];
+}

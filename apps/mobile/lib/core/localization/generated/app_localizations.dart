@@ -1,0 +1,578 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart' as intl;
+
+import 'app_localizations_ar.dart';
+import 'app_localizations_en.dart';
+
+// ignore_for_file: type=lint
+
+/// Callers can lookup localized strings with an instance of AppLocalizations
+/// returned by `AppLocalizations.of(context)`.
+///
+/// Applications need to include `AppLocalizations.delegate()` in their app's
+/// `localizationDelegates` list, and the locales they support in the app's
+/// `supportedLocales` list. For example:
+///
+/// ```dart
+/// import 'generated/app_localizations.dart';
+///
+/// return MaterialApp(
+///   localizationsDelegates: AppLocalizations.localizationsDelegates,
+///   supportedLocales: AppLocalizations.supportedLocales,
+///   home: MyApplicationHome(),
+/// );
+/// ```
+///
+/// ## Update pubspec.yaml
+///
+/// Please make sure to update your pubspec.yaml to include the following
+/// packages:
+///
+/// ```yaml
+/// dependencies:
+///   # Internationalization support.
+///   flutter_localizations:
+///     sdk: flutter
+///   intl: any # Use the pinned version from flutter_localizations
+///
+///   # Rest of dependencies
+/// ```
+///
+/// ## iOS Applications
+///
+/// iOS applications define key application metadata, including supported
+/// locales, in an Info.plist file that is built into the application bundle.
+/// To configure the locales supported by your app, you’ll need to edit this
+/// file.
+///
+/// First, open your project’s ios/Runner.xcworkspace Xcode workspace file.
+/// Then, in the Project Navigator, open the Info.plist file under the Runner
+/// project’s Runner folder.
+///
+/// Next, select the Information Property List item, select Add Item from the
+/// Editor menu, then select Localizations from the pop-up menu.
+///
+/// Select and expand the newly-created Localizations item then, for each
+/// locale your application supports, add a new item and select the locale
+/// you wish to add from the pop-up menu in the Value field. This list should
+/// be consistent with the languages listed in the AppLocalizations.supportedLocales
+/// property.
+abstract class AppLocalizations {
+  AppLocalizations(String locale)
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+
+  final String localeName;
+
+  static AppLocalizations of(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
+  }
+
+  static const LocalizationsDelegate<AppLocalizations> delegate =
+      _AppLocalizationsDelegate();
+
+  /// A list of this localizations delegate along with the default localizations
+  /// delegates.
+  ///
+  /// Returns a list of localizations delegates containing this delegate along with
+  /// GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate,
+  /// and GlobalWidgetsLocalizations.delegate.
+  ///
+  /// Additional delegates can be added by appending to this list in
+  /// MaterialApp. This list does not have to be used at all if a custom list
+  /// of delegates is preferred or required.
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
+
+  /// A list of this localizations delegate's supported locales.
+  static const List<Locale> supportedLocales = <Locale>[
+    Locale('ar'),
+    Locale('en'),
+  ];
+
+  /// Brand name, transliterated. Not a literal translation.
+  ///
+  /// In en, this message translates to:
+  /// **'Madar Al-Huda'**
+  String get appTitle;
+
+  /// Product tagline from docs/BRAND.md.
+  ///
+  /// In en, this message translates to:
+  /// **'Quran, Knowledge & Worship in One Place'**
+  String get appTagline;
+
+  /// Bottom navigation: home tab.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get navHome;
+
+  /// Bottom navigation: Quran tab.
+  ///
+  /// In en, this message translates to:
+  /// **'Quran'**
+  String get navQuran;
+
+  /// Bottom navigation: worship tab (prayer, qibla, adhkar).
+  ///
+  /// In en, this message translates to:
+  /// **'Worship'**
+  String get navWorship;
+
+  /// Bottom navigation: Islamic library tab.
+  ///
+  /// In en, this message translates to:
+  /// **'Library'**
+  String get navLibrary;
+
+  /// Bottom navigation: learning tab.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning'**
+  String get navLearning;
+
+  /// Tooltip for the settings button in the app bar.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get openSettings;
+
+  /// Greeting at the top of the home screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Assalamu alaikum'**
+  String get homeGreeting;
+
+  /// Label preceding today's Gregorian date.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get homeTodayLabel;
+
+  /// Heading for the grid of shortcuts on the home screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick access'**
+  String get homeQuickAccess;
+
+  /// Title of the notice explaining that content is not yet published.
+  ///
+  /// In en, this message translates to:
+  /// **'Early development preview'**
+  String get homePreviewTitle;
+
+  /// Body of the development-preview notice.
+  ///
+  /// In en, this message translates to:
+  /// **'Religious content appears only after its source, license and any required scholarly review are verified. Sections still awaiting verification are clearly marked.'**
+  String get homePreviewBody;
+
+  /// Title of the product promise card.
+  ///
+  /// In en, this message translates to:
+  /// **'Free, private, ad-free'**
+  String get homePromiseTitle;
+
+  /// Body of the product promise card.
+  ///
+  /// In en, this message translates to:
+  /// **'No ads, no subscriptions and no account required. Your preferences stay on this device.'**
+  String get homePromiseBody;
+
+  /// Intro line on the Quran tab.
+  ///
+  /// In en, this message translates to:
+  /// **'Read, listen and reflect.'**
+  String get quranHubIntro;
+
+  /// Intro line on the Worship tab.
+  ///
+  /// In en, this message translates to:
+  /// **'Your companion for daily worship.'**
+  String get worshipHubIntro;
+
+  /// Intro line on the Library tab.
+  ///
+  /// In en, this message translates to:
+  /// **'Islamic knowledge with clear sources.'**
+  String get libraryHubIntro;
+
+  /// Intro line on the Learning tab.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn step by step.'**
+  String get learningHubIntro;
+
+  /// Quran reader section title.
+  ///
+  /// In en, this message translates to:
+  /// **'Read the Quran'**
+  String get sectionMushafTitle;
+
+  /// Quran reader section description.
+  ///
+  /// In en, this message translates to:
+  /// **'Surah index, search, bookmarks and last read position'**
+  String get sectionMushafSubtitle;
+
+  /// Audio recitations section title.
+  ///
+  /// In en, this message translates to:
+  /// **'Recitations'**
+  String get sectionRecitationsTitle;
+
+  /// Audio recitations section description.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen to recitations by selected reciters'**
+  String get sectionRecitationsSubtitle;
+
+  /// Quran exegesis section title.
+  ///
+  /// In en, this message translates to:
+  /// **'Tafsir'**
+  String get sectionTafsirTitle;
+
+  /// Tafsir section description: names of the two candidate works.
+  ///
+  /// In en, this message translates to:
+  /// **'Al-Tabari and Ibn Kathir'**
+  String get sectionTafsirSubtitle;
+
+  /// Prayer times section title.
+  ///
+  /// In en, this message translates to:
+  /// **'Prayer Times'**
+  String get sectionPrayerTimesTitle;
+
+  /// Prayer times section description.
+  ///
+  /// In en, this message translates to:
+  /// **'Based on your location or a city you choose'**
+  String get sectionPrayerTimesSubtitle;
+
+  /// Qibla direction section title.
+  ///
+  /// In en, this message translates to:
+  /// **'Qibla'**
+  String get sectionQiblaTitle;
+
+  /// Qibla section description.
+  ///
+  /// In en, this message translates to:
+  /// **'Direction of the Kaaba from where you are'**
+  String get sectionQiblaSubtitle;
+
+  /// Remembrance and supplication section title.
+  ///
+  /// In en, this message translates to:
+  /// **'Adhkar & Dua'**
+  String get sectionAdhkarTitle;
+
+  /// Adhkar section description.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning, evening and daily remembrance'**
+  String get sectionAdhkarSubtitle;
+
+  /// Hadith library section title.
+  ///
+  /// In en, this message translates to:
+  /// **'Hadith'**
+  String get sectionHadithTitle;
+
+  /// Hadith section description.
+  ///
+  /// In en, this message translates to:
+  /// **'Narrations with their sources and gradings'**
+  String get sectionHadithSubtitle;
+
+  /// Comparative jurisprudence section title.
+  ///
+  /// In en, this message translates to:
+  /// **'Comparative Fiqh'**
+  String get sectionFiqhTitle;
+
+  /// Fiqh section description: the four Sunni madhhabs.
+  ///
+  /// In en, this message translates to:
+  /// **'Hanafi, Maliki, Shafi\'i and Hanbali views'**
+  String get sectionFiqhSubtitle;
+
+  /// Articles section title.
+  ///
+  /// In en, this message translates to:
+  /// **'Articles'**
+  String get sectionArticlesTitle;
+
+  /// Articles section description.
+  ///
+  /// In en, this message translates to:
+  /// **'Reviewed articles in Arabic and English'**
+  String get sectionArticlesSubtitle;
+
+  /// Lessons and quizzes section title.
+  ///
+  /// In en, this message translates to:
+  /// **'Lessons & Quizzes'**
+  String get sectionLessonsTitle;
+
+  /// Lessons section description.
+  ///
+  /// In en, this message translates to:
+  /// **'Structured paths in fiqh, aqidah and sirah'**
+  String get sectionLessonsSubtitle;
+
+  /// Prophet stories section title.
+  ///
+  /// In en, this message translates to:
+  /// **'Stories of the Prophets'**
+  String get sectionStoriesTitle;
+
+  /// Prophet stories section description.
+  ///
+  /// In en, this message translates to:
+  /// **'Told from the Quran and Sunnah, with sources'**
+  String get sectionStoriesSubtitle;
+
+  /// Content status: source/license not yet verified.
+  ///
+  /// In en, this message translates to:
+  /// **'Awaiting source verification'**
+  String get statusAwaitingSourceTitle;
+
+  /// Explanation for the awaiting-source status.
+  ///
+  /// In en, this message translates to:
+  /// **'This section will show content only after its source edition and usage rights have been verified.'**
+  String get statusAwaitingSourceBody;
+
+  /// Content status: recitation streaming rights not yet confirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Awaiting audio rights'**
+  String get statusAwaitingAudioTitle;
+
+  /// Explanation for the awaiting-audio-rights status.
+  ///
+  /// In en, this message translates to:
+  /// **'Recitations will become available once streaming permission is confirmed for each reciter.'**
+  String get statusAwaitingAudioBody;
+
+  /// Content status: needs qualified scholarly review.
+  ///
+  /// In en, this message translates to:
+  /// **'Awaiting scholarly review'**
+  String get statusAwaitingScholarlyTitle;
+
+  /// Explanation for the awaiting-scholarly-review status.
+  ///
+  /// In en, this message translates to:
+  /// **'This content is published only after review and approval by a qualified scholar.'**
+  String get statusAwaitingScholarlyBody;
+
+  /// Content status: needs source and editorial review.
+  ///
+  /// In en, this message translates to:
+  /// **'Awaiting editorial review'**
+  String get statusAwaitingEditorialTitle;
+
+  /// Explanation for the awaiting-editorial-review status.
+  ///
+  /// In en, this message translates to:
+  /// **'Articles and lessons are published only after their sources and text have been reviewed.'**
+  String get statusAwaitingEditorialBody;
+
+  /// Content status: prayer time calculation not yet validated.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculation under validation'**
+  String get statusAwaitingValidationTitle;
+
+  /// Explanation for the calculation-validation status.
+  ///
+  /// In en, this message translates to:
+  /// **'Prayer times will appear once the calculation has been validated against official references for the UAE and Egypt.'**
+  String get statusAwaitingValidationBody;
+
+  /// Content status: feature is being built.
+  ///
+  /// In en, this message translates to:
+  /// **'In development'**
+  String get statusInDevelopmentTitle;
+
+  /// Explanation for the in-development status.
+  ///
+  /// In en, this message translates to:
+  /// **'This feature is being built and will be available in an upcoming version.'**
+  String get statusInDevelopmentBody;
+
+  /// Settings screen title.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settingsTitle;
+
+  /// Settings group: app language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get settingsLanguage;
+
+  /// Language option: follow the device language.
+  ///
+  /// In en, this message translates to:
+  /// **'Device language'**
+  String get languageSystem;
+
+  /// Language option: Arabic. Always shown in Arabic.
+  ///
+  /// In en, this message translates to:
+  /// **'العربية'**
+  String get languageArabic;
+
+  /// Language option: English. Always shown in English.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get languageEnglish;
+
+  /// Settings group: theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get settingsAppearance;
+
+  /// Theme option: follow the system.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get themeSystem;
+
+  /// Theme option: light.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get themeLight;
+
+  /// Theme option: dark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get themeDark;
+
+  /// Accessibility toggle title.
+  ///
+  /// In en, this message translates to:
+  /// **'Reduce motion'**
+  String get settingsReduceMotion;
+
+  /// Accessibility toggle description.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimize animations and screen transitions'**
+  String get settingsReduceMotionSubtitle;
+
+  /// Settings group: account.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get settingsAccount;
+
+  /// Account status: guest (no account).
+  ///
+  /// In en, this message translates to:
+  /// **'Guest mode'**
+  String get settingsGuestMode;
+
+  /// Explanation of guest mode.
+  ///
+  /// In en, this message translates to:
+  /// **'No account needed. Your preferences are stored only on this device.'**
+  String get settingsGuestModeBody;
+
+  /// Settings group: about the app.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get settingsAbout;
+
+  /// About text: product promise.
+  ///
+  /// In en, this message translates to:
+  /// **'Free forever, with no ads and no subscriptions.'**
+  String get settingsAboutBody;
+
+  /// Opens the open-source licenses page.
+  ///
+  /// In en, this message translates to:
+  /// **'Open-source licenses'**
+  String get settingsLicenses;
+
+  /// Shown when saving a setting fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t save your preference. Please try again.'**
+  String get settingsSaveError;
+
+  /// Title shown for an unknown route.
+  ///
+  /// In en, this message translates to:
+  /// **'Page not found'**
+  String get notFoundTitle;
+
+  /// Body shown for an unknown route.
+  ///
+  /// In en, this message translates to:
+  /// **'The page you were looking for doesn\'t exist.'**
+  String get notFoundBody;
+
+  /// Button that returns to the home screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to home'**
+  String get notFoundAction;
+}
+
+class _AppLocalizationsDelegate
+    extends LocalizationsDelegate<AppLocalizations> {
+  const _AppLocalizationsDelegate();
+
+  @override
+  Future<AppLocalizations> load(Locale locale) {
+    return SynchronousFuture<AppLocalizations>(lookupAppLocalizations(locale));
+  }
+
+  @override
+  bool isSupported(Locale locale) =>
+      <String>['ar', 'en'].contains(locale.languageCode);
+
+  @override
+  bool shouldReload(_AppLocalizationsDelegate old) => false;
+}
+
+AppLocalizations lookupAppLocalizations(Locale locale) {
+  // Lookup logic when only language code is specified.
+  switch (locale.languageCode) {
+    case 'ar':
+      return AppLocalizationsAr();
+    case 'en':
+      return AppLocalizationsEn();
+  }
+
+  throw FlutterError(
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.',
+  );
+}

@@ -13,6 +13,11 @@
 | D-09 | أول دولتين لاختبار الصلاة: الإمارات ومصر | CONFIRMED |
 | D-10 | مكتبة ودروس من مصادر موثقة ومحتوى أصلي | CONFIRMED |
 | D-11 | الحساب اختياري، البيانات الأساسية Local-first | CONFIRMED DESIGN |
+| D-12 | Mobile stack: Flutter 3.50.0 stable (Dart 3.14), `material_ui` 1.11.1، Riverpod 3.5.0، go_router 18.1.4، shared_preferences 2.5.6، intl 0.20.3. إصدارات **مثبتة بالضبط** مع `pubspec.lock`، والترقية بـ PR مستقل (Dependabot) | PROPOSED (P00-06 PR) |
+| D-13 | لغة الواجهة الافتراضية تتبع الجهاز: العربية لأجهزة العربية، وغيرها يرجع إلى الإنجليزية؛ ويمكن التغيير من الإعدادات ويُحفظ محليًا | PROPOSED (P00-06 PR) |
+| D-14 | خط الواجهة المؤقت: IBM Plex Sans Arabic (SIL OFL 1.1، الترخيص مرفق) للعربية واللاتينية معًا؛ تأجيل Inter لتجنب ملف variable ~0.9MB. ليس خط مصحف | PROPOSED (P00-03 يعتمد) |
+| D-15 | معرف التطبيق للتطوير `com.abdulrahmanalsaeed.madaralhuda` (Android وiOS) كمرشح من BRAND.md؛ يبقى O-08 مفتوحًا قبل أول نشر | PROPOSED |
+| D-16 | تنفيذ P00-06 قبل اعتماد P00-03/P00-05 بقرار المالك: الألوان والأيقونة والمعمارية مؤقتة وقابلة للاستبدال دون كسر الهيكل | CONFIRMED (owner instruction) |
 
 ## Needs decision / verification
 - `O-01` الشعار النهائي وفحص اسم المتجر والعلامة.
@@ -23,6 +28,6 @@
 - `O-06` مترجم إنجليزي معتمد وحقوق عرض معاني الآيات.
 - `O-07` ميزانية تشغيل بعد معرفة استخدام الصوت والسحابة.
 - `O-08` Package ID Android قبل النشر.
-- `O-09` إصدارات Flutter/Next.js/Supabase تثبّت بعد التحقق من الوثائق التقنية.
+- `O-09` إصدارات Flutter/Next.js/Supabase تثبّت بعد التحقق من الوثائق التقنية. (Flutter مقترح في D-12؛ Next.js/Supabase لم تُحدد.)
 
 **مرجع ملزم للمصادر:** [../docs/CONTENT_SOURCES.md](../docs/CONTENT_SOURCES.md). كل اختيار تقني مقترح وليس تصريحًا بأن الخدمة جهّزت بالفعل.

@@ -1,0 +1,53 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:material_ui/material_ui.dart';
+
+import 'app/app.dart';
+import 'core/storage/key_value_store.dart';
+import 'core/storage/storage_providers.dart';
+import 'features/settings/data/settings_repository.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  _registerFontLicense();
+
+  final store = await _openPreferences();
+
+  runApp(
+    ProviderScope(
+      overrides: [keyValueStoreProvider.overrideWithValue(store)],
+      child: const MadarApp(),
+    ),
+  );
+}
+
+/// Opens on-device preferences. If the platform store is unavailable the app
+/// still starts, with defaults kept in memory for this session.
+Future<KeyValueStore> _openPreferences() async {
+  try {
+    return await SharedPreferencesKeyValueStore.create(
+      allowList: SettingsRepository.keys,
+    );
+  } catch (error, stack) {
+    FlutterError.reportError(
+      FlutterErrorDetails(
+        exception: error,
+        stack: stack,
+        library: 'madar_al_huda',
+        context: ErrorDescription('while opening preferences'),
+      ),
+    );
+    return InMemoryKeyValueStore();
+  }
+}
+
+/// Shows the bundled font's OFL licence on the licences page.
+void _registerFontLicense() {
+  LicenseRegistry.addLicense(() async* {
+    final text = await rootBundle.loadString(
+      'assets/fonts/ibm_plex_sans_arabic/OFL.txt',
+    );
+    yield LicenseEntryWithLineBreaks(['IBM Plex Sans Arabic'], text);
+  });
+}

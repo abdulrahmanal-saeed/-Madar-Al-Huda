@@ -20,12 +20,12 @@ Status: **in progress**. This document is a task plan, not a claim that all engi
 
 ## Track C — engineering
 - [x] Initialize repository README and documentation draft.
-- [ ] Scaffold Flutter project in apps/mobile with AR/EN localization.
-- [ ] Implement app shell and initial screen routes.
+- [x] Scaffold Flutter project in apps/mobile with AR/EN localization. *(P00-06 PR, in review)*
+- [x] Implement app shell and initial screen routes. *(P00-06 PR, in review)*
 - [ ] Add Drift/SQLite versioned schema and source integrity fixture.
 - [ ] Prototype prayer calculation and UAE/Egypt reference cases.
 - [ ] Set up backend only after verifying current Supabase docs/changelog.
-- [ ] Add CI: format/analyze/test and secrets scan.
+- [x] Add CI: format/analyze/test and secrets scan. *(P00-06 PR: `.github/workflows/mobile-ci.yml`; first CI run is on that PR)*
 - [ ] Set up CMS roles/RLS design before any user data goes online.
 
 ## Gates for Phase 0 completion
