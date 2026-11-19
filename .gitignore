@@ -1,0 +1,29 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+key.properties
+*.p12
+*.pem
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+build/
+coverage/
+**/.idea/
+**/*.iml
+
+# Next.js / Node
+node_modules/
+.next/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
