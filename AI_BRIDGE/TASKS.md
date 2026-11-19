@@ -1,8 +1,10 @@
 # Active task board — Phase 0
 
+Project-level roadmap and statuses: [../plan/README.md](../plan/README.md) and [../plan/TRACKER.md](../plan/TRACKER.md). This bridge tracks only active agent handoffs; if stale, update it to match the tracker.
+
 | ID | Task | Owner | Status | Acceptance |
 |---|---|---|---|---|
-| MHD-000 | Establish repo and specification baseline | ChatGPT | REVIEW | Docs, branch, PR exist and links verified |
+| MHD-000 | Establish repo and specification baseline | ChatGPT | DONE | Docs, branch, PR exist and links verified |
 | MHD-001 | Build Flutter Android skeleton with Arabic/English | Coding agent | TODO | Debug build, navigation, RTL/LTR smoke tests |
 | MHD-002 | Verify Quran source and legal edition | Content lead | BLOCKED | Rights log, attribution, fixed checksum |
 | MHD-003 | Prototype prayer time + Qibla calculation | Coding agent | TODO | UAE/Egypt fixtures + timezone/DST tests |
