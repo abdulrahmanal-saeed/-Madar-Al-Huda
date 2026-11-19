@@ -4,6 +4,14 @@ Implementation updates must include: task ID, branch, changed files, commands/te
 
 ---
 
+## 2026-11-19 — P00-03 / MHD-010: original identity assets
+- Created editable SVG icon, AR/EN wordmarks and monochrome source in `design/brand`, with brand JSON and a stdlib asset integrity validator.
+- Added Android adaptive and monochrome vector assets, and regenerated all five legacy launcher PNG densities as opaque raster images. CI now validates brand colors, icon dimensions/XML and bundled IBM Plex Arabic OFL license.
+- No Quran font, iOS artwork or trademark approval represented as complete. O-01 and O-08 require independent official name/ownership evidence. No mobile visual/device test claimed here.
+- Issue #15. Status REVIEW pending independent feedback and merge.
+
+---
+
 ## 2026-11-19 — P00-05 / MHD-009: architecture design and security contract
 - Prepared ADR-0001, ERD, RLS policy matrix, threat model, reference SQL blueprint (not a migration), and links to existing Flutter shell / edition-aware AyahRef.
 - Verified Supabase RLS and API-security docs plus November 2026 changelog (supabase-flutter v3). No Supabase version pinned or deployment performed.

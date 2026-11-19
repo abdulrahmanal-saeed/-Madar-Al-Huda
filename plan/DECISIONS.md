@@ -22,6 +22,8 @@
 
 | D-18 | P00-05 engineering baseline: Flutter offline-first + versioned immutable Quran source + private editorial schema + published-only API projection + RLS owner isolation for optional cloud sync; no production Supabase deployment in Phase 0 | PROPOSED (P00-05 PR) |
 
+| D-19 | P00-03 design: open-book orbit mark, source SVG and Android vector+PNG launcher, green/gold/ivory colors, bilingual IBM Plex Sans Arabic UI with OFL-1.1. Not trademark-cleared; production signoff pending. | PROPOSED (P00-03 PR) |
+
 ## Needs decision / verification
 - `O-01` الشعار النهائي وفحص اسم المتجر والعلامة.
 - `O-02` حقوق إصدار المصحف وملف hash.

@@ -45,6 +45,9 @@ jobs:
         working-directory: apps/mobile
         run: ./tool/policy_checks.sh
 
+      - name: Verify brand source assets and native icons
+        run: python3 design/brand/check_assets.py
+
   analyze-test:
     name: Format, analyze & test
     runs-on: ubuntu-latest

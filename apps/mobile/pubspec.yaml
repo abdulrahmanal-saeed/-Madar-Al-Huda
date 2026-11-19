@@ -33,7 +33,7 @@ flutter:
   # Generates lib/core/localization/generated/ from the ARB files (l10n.yaml).
   generate: true
 
-  # UI typeface candidate from docs/BRAND.md, licensed under SIL OFL 1.1
+  # UI typeface per design/brand/tokens.json, licensed under SIL OFL 1.1
   # (assets/fonts/ibm_plex_sans_arabic/OFL.txt). Covers Arabic and Latin.
   # This is NOT a Quran typeface; Quran text requires an approved Uthmani font.
   fonts:
