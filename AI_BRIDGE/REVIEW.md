@@ -2,6 +2,22 @@
 
 Reviewers should post actionable findings with file paths, severity and suggested fix. No tests or runtime validation are claimed for documentation-only changes.
 
+## P00-09 / MHD-007 review checklist (QA rules & DoD)
+
+Status: **awaiting review.** Stacked on PR #4; review and merge #4 first.
+
+- [ ] `plan/DEFINITION_OF_DONE.md` matches `plan/WORKFLOW.md`, `TEST_STRATEGY.md` and `docs/CONTENT_GOVERNANCE.md` (no contradictions).
+- [ ] The religious-content gate (§2.3) is strict enough, and the scholarly/language review requirements are correct.
+- [ ] §3 only *references* the existing CI jobs (no duplicated checks); job names match `.github/workflows/mobile-ci.yml`.
+- [ ] `.github/pull_request_template.md` renders on a new PR and is practical to fill in.
+- [ ] `docs/QA_CHECKLIST.md` steps are executable on an emulator; Phase 0 gate 1 sign-off table is usable.
+- [ ] Owner action noted: branch protection on `main` requiring the three CI checks + 1 review.
+
+### Findings
+_None recorded yet._
+
+---
+
 ## P00-06 / MHD-001 review checklist (Flutter skeleton)
 
 Status: **awaiting independent review.** Implementation notes: [IMPLEMENTATION.md](IMPLEMENTATION.md).
