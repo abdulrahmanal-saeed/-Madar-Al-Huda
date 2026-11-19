@@ -1,5 +1,10 @@
 # Plan Changelog
 
+## 2026-11-19 — Phase 0 design reconciliation after PR #14 and #16
+- P00-05 architectural design DONE after docs/ERD/RLS blueprint merged; does **not** mean live database or RLS role tests were run.
+- P00-03 creative/Android icon assets merged, remains REVIEW for visual owner signoff and official naming/trademark clearance.
+- RLS blueprint hardened with expiry-aware content gate; static design contract checker added to policy CI.
+
 ## 2026-11-19 — P00-03 brand assets
 - Original SVG mark + AR/EN wordmark, native Android vector/mono, 5 PNG sizes, token JSON and CI verification. Creative identity ready for review; trademark and owner signoff not claimed.
 

@@ -20,9 +20,9 @@
 | D-17 | نسخ التطوير تُوزَّع كـ GitHub **prerelease** عامة (الريبو public) بمعرف `…madaralhuda.dev` ومفتاح تطوير ثابت (ليس مفتاح المتجر)، وتتحدث على أجهزة المختبرين عبر Obtainium. لا كود تحديث ولا صلاحيات داخل التطبيق | CONFIRMED (owner choice 2026-11-19) |
 | D-16 | تنفيذ P00-06 قبل اعتماد P00-03/P00-05 بقرار المالك: الألوان والأيقونة والمعمارية مؤقتة وقابلة للاستبدال دون كسر الهيكل | CONFIRMED (owner instruction) |
 
-| D-18 | P00-05 engineering baseline: Flutter offline-first + versioned immutable Quran source + private editorial schema + published-only API projection + RLS owner isolation for optional cloud sync; no production Supabase deployment in Phase 0 | PROPOSED (P00-05 PR) |
+| D-18 | P00-05 engineering baseline: Flutter offline-first + versioned immutable Quran source + private editorial schema + published-only API projection + RLS owner isolation for optional cloud sync; no production Supabase deployment in Phase 0 | CONFIRMED engineering baseline — PR #14 merged; no Supabase deployment |
 
-| D-19 | P00-03 design: open-book orbit mark, source SVG and Android vector+PNG launcher, green/gold/ivory colors, bilingual IBM Plex Sans Arabic UI with OFL-1.1. Not trademark-cleared; production signoff pending. | PROPOSED (P00-03 PR) |
+| D-19 | P00-03 design: open-book orbit mark, source SVG and Android vector+PNG launcher, green/gold/ivory colors, bilingual IBM Plex Sans Arabic UI with OFL-1.1. Not trademark-cleared; production signoff pending. | CREATIVE ASSETS MERGED — PR #16; legal/owner signoff pending |
 
 ## Needs decision / verification
 - `O-01` الشعار النهائي وفحص اسم المتجر والعلامة.

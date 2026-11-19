@@ -95,6 +95,7 @@ create table public.mh_published_items (
   rights_verified boolean not null default false,
   editorial_approved boolean not null default false,
   published_at timestamptz,
+  rights_expires_at timestamptz,
   withdrawn_at timestamptz
 );
 create index on public.mh_published_items(content_kind, language, published_at desc)
@@ -156,6 +157,7 @@ create policy "approved_published_read"
     published_at is not null and
     published_at <= now() and
     withdrawn_at is null and
+    (rights_expires_at is null or rights_expires_at > now()) and
     rights_verified and editorial_approved
   );
 
