@@ -3,6 +3,7 @@
 **A free, bilingual Islamic companion for Quran, knowledge, and worship.**
 
 > Status: Phase 0 — product foundation and source verification. Not yet a released app.
+> A Flutter app shell (Arabic/English, five tabs, light/dark) exists in [`apps/mobile`](apps/mobile/README.md); it intentionally contains **no religious content** until sources and reviews are verified.
 
 ## Product commitments
 
@@ -21,7 +22,11 @@
 
 **Important:** Do not ingest or redistribute content before checking the precise source, edition, integrity, reuse rights, and attribution. No unreviewed religious rulings should be published.
 
-## Planned stack
+## Stack
+
+**Implemented:** Flutter 3.50 mobile shell in `apps/mobile` with GitHub Actions CI (`.github/workflows/mobile-ci.yml`).
+
+**Planned:**
 
 Flutter/Dart mobile app · Drift/SQLite local storage · Supabase/PostgreSQL backend · Next.js admin CMS. Actual versions and integrations will be pinned and validated during implementation.
 

@@ -1,0 +1,23 @@
+# Dependency update PRs. Pins are exact (plan/DECISIONS.md D-12), so every
+# upgrade arrives as a reviewable PR that must pass Mobile CI.
+version: 2
+updates:
+  - package-ecosystem: pub
+    directory: /apps/mobile
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    labels: [dependencies]
+
+  - package-ecosystem: gradle
+    directory: /apps/mobile/android
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3
+    labels: [dependencies]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    labels: [dependencies]
