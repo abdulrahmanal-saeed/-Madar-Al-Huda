@@ -53,11 +53,12 @@ All run from `apps/mobile/`:
 | `./tool/policy_checks.sh` | Passed; negative test (ads SDK, location permission, `^` version, tracked `.jks`) → all four reported, exit 1 |
 | `gitleaks dir .` and `gitleaks git .` (v8.30.1, checksum verified) | No leaks found |
 
+**GitHub Actions (PR #4), [run 44515769187](https://github.com/abdulrahmanal-saeed/madar-al-huda/actions/runs/44515769187) on `8d2b11a`: all 3 jobs passed** — Secrets & policy; Format, analyze & test; Android debug build (APK uploaded as artifact `madar-al-huda-debug-apk`). Run 1 was cancelled by the concurrency group when the next commit was pushed.
+
 Visual check: screens were rendered through a temporary golden test with the real fonts loaded (AR/EN × light/dark × Home/Worship/Prayer Times/Settings). It found and fixed one bug (component text styles had no font size → tiny app-bar titles; now covered by a regression test). The temporary test was removed; 5 screenshots are kept in `docs/screenshots/p00-06/`.
 
 ### Not verified / remaining issues
 - **No emulator or physical device run.** Acceptance asks for both locales verified on-device or emulator (Phase 0 gate 1) — still needed. Widget tests cover RTL/LTR, mirroring, persistence and text scaling.
-- GitHub Actions has not run yet; the first run will be on this PR.
 - iOS not built (no macOS); structure only.
 - Screen-reader (TalkBack) pass not performed; semantics labels are set on cards and headers.
 - Brand assets, font choice, icon and app ID are provisional (P00-03, O-01, O-08).
