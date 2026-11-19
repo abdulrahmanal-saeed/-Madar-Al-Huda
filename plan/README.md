@@ -9,7 +9,7 @@
 | الملف | الغرض |
 |---|---|
 | [ROADMAP.md](ROADMAP.md) | خريطة المراحل السبعة والمخرجات والمسار الحرج |
-| [TRACKER.md](TRACKER.md) | لوحة تتبع 58 مهمة وحالتها، روابط التنفيذ |
+| [TRACKER.md](TRACKER.md) | لوحة تتبع 59 مهمة وحالتها، روابط التنفيذ |
 | [FEATURE_MATRIX.md](FEATURE_MATRIX.md) | جميع خصائص التطبيق وتوزيعها |
 | [DECISIONS.md](DECISIONS.md) | قرارات المنتج المعتمدة وما ينتظر الحسم |
 | [RISKS_AND_BLOCKERS.md](RISKS_AND_BLOCKERS.md) | مخاطر التراخيص والمراجعة والصلاة والصوت |

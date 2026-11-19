@@ -1,5 +1,8 @@
 # Plan Changelog
 
+## 2026-11-19 — P00-11 dev update channel
+- مهمة جديدة `P00-11` بطلب المالك: workflow `dev-release.yml` ينشر APK تطوير موقّع بعد نجاح CI على `main`، والتحديث عبر Obtainium. Phase 00 أصبحت 11 مهمة (المجموع 59). قرار D-17.
+
 ## 2026-11-19 — P00-09 QA rules & Definition of Done
 - `P00-09` → `REVIEW`: [DEFINITION_OF_DONE.md](DEFINITION_OF_DONE.md) (انتقالات الحالة، قوائم الإنجاز حسب نوع المهمة، بوابات CI الحالية، المراجعات والأدلة، الخطورة)، و`docs/QA_CHECKLIST.md`، و`.github/pull_request_template.md`. لا يضيف CI جديدًا.
 

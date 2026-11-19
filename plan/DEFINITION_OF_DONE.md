@@ -85,6 +85,8 @@ them to be **green on the latest head commit**:
 | **Format, analyze & test** | `pub get --enforce-lockfile`, generated l10n up to date, `dart format`, `flutter analyze --fatal-infos`, `flutter test --coverage` (coverage artifact) |
 | **Android debug build** | `flutter build apk --debug` and APK artifact with SHA-256 |
 
+`.github/workflows/dev-release.yml` (P00-11) is a distribution step that runs *after* these gates on `main`; it is not a gate.
+
 **Owner action (repository settings, not code):** protect `main` and require these
 three checks plus one approving review before merge. Until that is configured,
 reviewers must check the run themselves before approving.

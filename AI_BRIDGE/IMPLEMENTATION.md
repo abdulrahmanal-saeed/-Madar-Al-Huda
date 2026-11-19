@@ -4,6 +4,38 @@ Implementation updates must include: task ID, branch, changed files, commands/te
 
 ---
 
+## 2026-11-19 — P00-11 / MHD-008: automatic updates for dev builds (Obtainium)
+
+| Field | Value |
+|---|---|
+| Task | `P00-11` (new; owner request on 2026-11-19: "make it update automatically so I don't download a new APK every time") — `REVIEW` |
+| Branch | `phase-00/p00-11-dev-updates`, **stacked on PR #5** (which is stacked on #4). Merge order: #4 → #5 → this. |
+| Decision | D-17. The owner chose Obtainium + GitHub Releases over Shorebird and an in-app updater, so the app needs no new permissions or SDKs. |
+
+**Problem found:** every CI debug APK is signed with a new random debug key, so Android refuses to install a new build over an old one. Any auto-update needs a fixed signing key.
+
+**Changes**
+- `apps/mobile/android/app/build.gradle.kts`: `MADAR_CHANNEL=dev` adds the app id suffix `.dev` and a version suffix. Signing comes from `MADAR_SIGNING_*` environment variables, and a dev build without them fails. Default builds are unchanged.
+- `.github/workflows/dev-release.yml` (new): triggered by `workflow_run` after `Mobile CI` succeeds for a push to `main`, or by manual dispatch. It checks the secrets, builds a signed release APK, verifies package, version and signature with `aapt2`/`apksigner`, publishes a prerelease `v<ver>-dev.<run>` with the SHA-256 values, and keeps the newest 10 dev releases.
+- `docs/DEV_UPDATES.md` (new, Arabic + English): secret setup, Obtainium setup, release timing.
+- Tracker: new row `P00-11`; Phase 00 counts are now 11 tasks / 59 total (TRACKER, ROADMAP, PHASE_00, README, plan/README). D-17 and the changelog are updated.
+- A dev signing key (PKCS12, RSA 4096, alias `madar-dev`, valid 25 years) was generated in the session scratchpad and handed to the owner privately. Its certificate SHA-256 is `6C:70:46:D0:F4:77:91:45:2D:A9:55:C3:9B:17:10:AD:DD:2F:A0:42:37:3C:29:78:2E:69:2A:08:04:2F:3E:E3`. **Not committed.**
+
+**Commands actually run (local, Flutter 3.50.0)**
+| Check | Result |
+|---|---|
+| `MADAR_CHANNEL=dev flutter build apk --release` without signing vars | Fails as intended: "MADAR_CHANNEL=dev requires MADAR_SIGNING_* variables." |
+| Same build with a throwaway test key | Built (52.3 MB). `aapt2`: package `com.abdulrahmanalsaeed.madaralhuda.dev`, versionCode 7, versionName `0.1.0-dev.7`, no `uses-permission` except the AndroidX internal receiver permission. `apksigner`: cert matches the test key |
+| Same build using the **real secret values**, decoded from base64 exactly as CI does | Built. Signature SHA-256 `6c7046d0…3ee3` matches the dev key |
+| `flutter build apk --debug` (default) | Unchanged: `com.abdulrahmanalsaeed.madaralhuda`, 0.1.0 |
+| actionlint 1.7.12 on both workflows | OK |
+| Release-notes heredoc, cleanup filter and version parsing simulated in bash | Correct: only `vX.Y.Z-dev.N` tags are deleted |
+| gitleaks (`dir`) | No leaks |
+
+**Not verified:** the workflow itself can't run until it is on `main` (`workflow_run` and manual dispatch only work from the default branch) and the 3 secrets are added. The first real publish, and an Obtainium install plus in-place update on a phone, still need to be checked after merge.
+
+---
+
 ## 2026-11-19 — P00-09 / MHD-007: QA rules, Definition of Done, PR template
 
 | Field | Value |

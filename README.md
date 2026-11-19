@@ -32,7 +32,7 @@ Flutter/Dart mobile app · Drift/SQLite local storage · Supabase/PostgreSQL bac
 
 ## Project roadmap and task tracking
 
-**Start with [plan/README.md](plan/README.md)** to see all seven phases, the [58-task tracker](plan/TRACKER.md), acceptance criteria, risks, and release gates. `plan/TRACKER.md` is the authoritative task status board. `AI_BRIDGE/` tracks handoffs between implementation and review agents.
+**Start with [plan/README.md](plan/README.md)** to see all seven phases, the [59-task tracker](plan/TRACKER.md), acceptance criteria, risks, and release gates. `plan/TRACKER.md` is the authoritative task status board. `AI_BRIDGE/` tracks handoffs between implementation and review agents.
 
 ## Project docs
 

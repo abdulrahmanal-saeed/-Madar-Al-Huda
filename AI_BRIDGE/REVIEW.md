@@ -2,6 +2,19 @@
 
 Reviewers should post actionable findings with file paths, severity and suggested fix. No tests or runtime validation are claimed for documentation-only changes.
 
+## P00-11 / MHD-008 review checklist (dev update channel)
+
+Status: **awaiting review.** Stacked on PR #5 → #4; merge those first.
+
+- [ ] `.github/workflows/dev-release.yml` runs only after a **successful** `Mobile CI` for a **push** to `main` (never for PRs), or on manual dispatch; no CI checks are duplicated.
+- [ ] Signing secrets are only read from `secrets.*`; the keystore is written to `$RUNNER_TEMP` and removed; nothing key-related is committed (gitleaks green).
+- [ ] A dev build without signing variables fails (`build.gradle.kts`); local and CI debug builds are unchanged.
+- [ ] Published APK: app id `…madaralhuda.dev`, versionName `x.y.z-dev.N`, **no permissions** in the merged manifest.
+- [ ] Release cleanup only deletes `vX.Y.Z-dev.N` tags, keeps 10.
+- [ ] Owner has added the 3 secrets; first run after merge publishes a prerelease; Obtainium installs and later updates it in place.
+
+---
+
 ## P00-09 / MHD-007 review checklist (QA rules & DoD)
 
 Status: **awaiting review.** Stacked on PR #4; review and merge #4 first.
