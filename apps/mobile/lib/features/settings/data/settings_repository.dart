@@ -34,21 +34,29 @@ class SettingsRepository {
     reduceMotion: _store.getBool(reduceMotionKey) ?? false,
   );
 
+  // Each save writes the schema marker *before* the value. If the marker
+  // write fails, the value is never written, so a failed save leaves disk
+  // unchanged and the caller's rollback keeps UI and disk consistent.
+  // (A marker without a changed value is harmless: it only describes the
+  // format of values already on disk.)
+
   Future<void> saveLanguage(AppLanguage language) async {
+    await _ensureSchemaMarker();
     await _store.setString(languageKey, language.storageValue);
-    await _markSchema();
   }
 
   Future<void> saveTheme(AppThemePreference theme) async {
+    await _ensureSchemaMarker();
     await _store.setString(themeKey, theme.storageValue);
-    await _markSchema();
   }
 
   Future<void> saveReduceMotion({required bool enabled}) async {
+    await _ensureSchemaMarker();
     await _store.setBool(reduceMotionKey, value: enabled);
-    await _markSchema();
   }
 
-  Future<void> _markSchema() =>
-      _store.setString(schemaVersionKey, schemaVersion);
+  Future<void> _ensureSchemaMarker() async {
+    if (_store.getString(schemaVersionKey) == schemaVersion) return;
+    await _store.setString(schemaVersionKey, schemaVersion);
+  }
 }

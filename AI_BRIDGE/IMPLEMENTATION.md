@@ -4,6 +4,42 @@ Implementation updates must include: task ID, branch, changed files, commands/te
 
 ---
 
+## 2026-11-19 — P00-06 review fix: settings persistence race (PR #4)
+
+| Field | Value |
+|---|---|
+| Task | `P00-06` / MHD-001 — still `REVIEW` (not merged) |
+| Branch / PR | `claude/serene-galileo-f2ia01` → [PR #4](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/4) (draft, kept open for re-review) |
+| Finding | [Review comment](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/4#issuecomment-7008108058): `SettingsController._update` restored the whole previous `AppSettings` on failure and writes were not serialized. A failed theme save could roll back a successful language change, and rapid edits of one setting could persist out of order. The schema marker was written *after* the value, so a marker failure left disk changed while the UI rolled back. |
+
+**Fix**
+- `settings_controller.dart`: all saves go through one **serialized queue** (strict request order, one write in flight). A queued save **superseded** by a newer request for the same field is skipped (the latest value wins). On failure, only the **failed field** reverts, to its **last persisted value**, and only if the request is still the latest for that field. Superseded failures change nothing and don't surface an error. The controller tracks a `_persisted` snapshot and per-field revisions, and guards on `ref.mounted`.
+- `settings_repository.dart`: the schema marker is written **before** the value and only when missing or outdated. A marker failure therefore means the value was never written, so rollback keeps UI and disk consistent.
+
+**Regression tests** (`test/features/settings/settings_concurrency_test.dart`, 11 tests). They use a `ControlledStore` whose writes complete only when the test settles them, so every interleaving is deterministic:
+the review scenario (theme fails while language succeeds), the inverse case, serialization (never more than one write in flight, in order), rapid same-field changes with coalescing, a superseded in-flight failure, a latest failure reverting to the last *persisted* value, rapid toggles ending in failure, marker failure leaving disk and UI unchanged, the marker written once and first, no-op re-selection, and a fixed mixed success/failure schedule ending with UI == disk.
+Plus one widget test (`localization_and_theme_test.dart`) with three rapid taps through the Settings UI, checking that both the theme and language end up persisted and shown.
+
+**Proof the tests catch the bug:** with the previous controller swapped back in, the review-scenario test fails with `Expected: AppLanguage.arabic, Actual: AppLanguage.system` ("successful language change must survive the theme rollback"). With the previous controller and repository, 10 of 11 concurrency tests fail. With the fix, all pass.
+
+**Commands run (apps/mobile)**
+| Command | Result |
+|---|---|
+| `flutter pub get --enforce-lockfile` | OK |
+| `flutter gen-l10n` + diff | Up to date |
+| `dart format --output=none --set-exit-if-changed lib test` | Clean |
+| `flutter analyze --fatal-infos` | No issues |
+| `flutter test --coverage` | **93 passed** (81 → 93); 97.3 % lines; `settings_controller.dart` and `settings_repository.dart` 100 % |
+| `flutter build apk --debug` | Built |
+| `./tool/policy_checks.sh` | Passed |
+| gitleaks 8.30.1 (`git`, `dir`) | No leaks |
+
+Changed files: `apps/mobile/lib/features/settings/application/settings_controller.dart`, `apps/mobile/lib/features/settings/data/settings_repository.dart`, `apps/mobile/test/features/settings/settings_concurrency_test.dart` (new), `apps/mobile/test/app/localization_and_theme_test.dart`, `apps/mobile/README.md`, `AI_BRIDGE/IMPLEMENTATION.md`, `AI_BRIDGE/REVIEW.md`.
+
+Remaining before merge: re-review of this fix, a green CI run on the new head, and the on-device/emulator check in both languages.
+
+---
+
 ## 2026-11-19 — P00-06 / MHD-001: Flutter Android skeleton + AR/EN localization
 
 | Field | Value |

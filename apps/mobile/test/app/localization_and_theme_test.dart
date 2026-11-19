@@ -188,6 +188,32 @@ void main() {
       );
     });
 
+    testWidgets('rapid changes across settings all persist and match UI', (
+      tester,
+    ) async {
+      final store = await pumpMadarApp(tester);
+      await openSettings(tester);
+
+      // Three taps without letting writes settle in between.
+      await tester.tap(
+        find.byKey(SettingsScreen.themeOptionKey(AppThemePreference.dark)),
+      );
+      await tester.pump();
+      await tester.tap(
+        find.byKey(SettingsScreen.languageOptionKey(AppLanguage.arabic)),
+      );
+      await tester.pump();
+      await tester.tap(
+        find.byKey(SettingsScreen.themeOptionKey(AppThemePreference.light)),
+      );
+      await tester.pumpAndSettle();
+
+      expect(store.values[SettingsRepository.themeKey], 'light');
+      expect(store.values[SettingsRepository.languageKey], 'ar');
+      expect(appBrightness(tester), Brightness.light);
+      expect(appDirection(tester), TextDirection.rtl);
+    });
+
     testWidgets('shows a message and keeps the old value if saving fails', (
       tester,
     ) async {

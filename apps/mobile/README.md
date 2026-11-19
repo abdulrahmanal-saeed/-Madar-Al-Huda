@@ -136,6 +136,7 @@ provisional mark (orbit + open book), not an approved logo.
 | `test/app/navigation_test.dart` | 5 destinations, hubs, every section route in AR and EN, per-tab state retention, back navigation, quick access, settings, 404, navigation rail, no clock-like times on Home |
 | `test/app/localization_and_theme_test.dart` | Device-language resolution, RTL/LTR mirroring, switching + persistence, 2× text scale, theme switching/persistence, reduce motion, save-failure message |
 | `test/features/settings/settings_persistence_test.dart` | Repository round-trip, corrupt values, real `shared_preferences` adapter, allow-list, controller rollback |
+| `test/features/settings/settings_concurrency_test.dart` | Deterministic interleavings of overlapping saves: serialization, coalescing, field-scoped rollback to the persisted value, superseded failures, schema-marker failure, UI == disk |
 | `test/core/theme/app_theme_test.dart` | Brand colours, WCAG contrast, font family, component text sizes, reduce-motion transitions |
 | `test/core/localization/locale_resolution_test.dart` | Locale rules, ARB key parity, translator descriptions |
 | `test/core/content_gating_test.dart` | No ungated sections, route uniqueness, `AyahRef` validation |

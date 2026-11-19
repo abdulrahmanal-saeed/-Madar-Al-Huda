@@ -24,7 +24,10 @@ Status: **awaiting independent review.** Implementation notes: [IMPLEMENTATION.m
 - [ ] TalkBack spot-check of navigation and Settings.
 
 ### Findings
-_None recorded yet._
+| # | Severity | Source | Finding | Status |
+|---|---|---|---|---|
+| 1 | **Blocking** | ChatGPT review ([comment](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/4#issuecomment-7008108058)) | `SettingsController` overlapping async writes: whole-object rollback loses successful changes; same-field writes can persist out of order; schema-marker failure after a value write causes a UI/disk mismatch | **Fixed, awaiting re-review.** Serialized and coalesced writes, field-scoped rollback to the last persisted value, marker written first. 12 deterministic regression tests; the old code fails the review-scenario test. See IMPLEMENTATION.md |
+| 2 | Info | ChatGPT review | Device/emulator, TalkBack, final Arabic copy and final brand still open | Open (documented) |
 
 ---
 
