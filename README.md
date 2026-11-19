@@ -25,6 +25,10 @@
 
 Flutter/Dart mobile app · Drift/SQLite local storage · Supabase/PostgreSQL backend · Next.js admin CMS. Actual versions and integrations will be pinned and validated during implementation.
 
+## Project roadmap and task tracking
+
+**Start with [plan/README.md](plan/README.md)** to see all seven phases, the [58-task tracker](plan/TRACKER.md), acceptance criteria, risks, and release gates. `plan/TRACKER.md` is the authoritative task status board. `AI_BRIDGE/` tracks handoffs between implementation and review agents.
+
 ## Project docs
 
 See the Phase 0 foundation branch/PR for the PRD, brand, architecture, data model, editorial policy, source register, and work plan.
