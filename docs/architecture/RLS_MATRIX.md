@@ -8,7 +8,7 @@ Supabase access is governed by **both grants and RLS**. This document is the des
 | `mh_private.quran_*` | No | none | none | import/verify only | immutable edition and checksum required |
 | `mh_private.content_revisions / reviews / audit` | No | none | none | append-only editorial operations | separate approvals; audit is never directly user-editable |
 | `mh_private.fiqh_*` / hadith gradings | No | none | none | approved staff only through server | attribution, academic reviewer checks |
-| `public.mh_published_items` | Yes | SELECT valid published only | SELECT valid published only | publishing service only for writes | `published_at IS NOT NULL AND withdrawn_at IS NULL AND rights_verified AND editorial_approved` |
+| `public.mh_published_items` | Yes | SELECT valid published only | SELECT valid published only | publishing service only for writes | `published_at IS NOT NULL AND withdrawn_at IS NULL AND (rights_expires_at IS NULL OR rights_expires_at > now()) AND rights_verified AND editorial_approved` |
 | `public.mh_user_bookmarks` | Yes | none | own SELECT/INSERT/UPDATE/DELETE | owned-data maintenance | `user_id = (select auth.uid())` for USING and WITH CHECK |
 | `public.mh_user_positions` | Yes | none | own SELECT/INSERT/UPDATE/DELETE | owned-data maintenance | same owner checks, foreign key verse/edition |
 | `public.mh_lesson_progress` | Yes | none | own SELECT/INSERT/UPDATE/DELETE | owned-data maintenance | same owner checks |

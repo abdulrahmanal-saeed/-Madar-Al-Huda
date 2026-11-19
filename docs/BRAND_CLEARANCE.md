@@ -7,3 +7,10 @@ Before store publication, obtain dated documented official checks for: UAE and E
 All eight items: **PENDING independent evidence / legal review**. O-01 and O-08 remain open. If conflict is found, change the name without changing source architecture; token and SVG files are isolated.
 
 The original open-book/orbit artwork and IBM Plex Sans Arabic OFL-1.1 typeface license are separate from clearance of an application name or trademark.
+
+## Official starting points for clearance (identified 2026-11-19)
+- UAE Ministry of Economy & Tourism — [Enquire About Registration of Trademarks](https://www.moet.gov.ae/en/web/guest/w/enquire-about-registration-of-trademarks): official application for searching proposed/similar marks. Even an enquiry result does **not** guarantee acceptance.
+- WIPO — [Global Brand Database](https://www.wipo.int/en/web/global-brand-database/index): international cross-database search. WIPO recommends searching national/regional registries separately too.
+- Egypt — [WIPO Egypt country IP profile](https://www.wipo.int/en/web/country-profiles/eg): identifies Egypt's trademark and industrial-design authority and relevant national registry resources. The Egyptian Patent Office is **not** a substitute for a trademark clearance enquiry. Obtain the current official trademark-office search or qualified local counsel's result before approval.
+
+**No enquiry was submitted and no official clearance result was retrieved** in this task; status remains PENDING.

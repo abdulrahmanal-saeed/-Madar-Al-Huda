@@ -66,3 +66,9 @@ Status: **PR #4 merged after technical re-review**; on-device AR/EN, TalkBack an
 - [ ] Architecture separates immutable Quran text from mutable data, audio and translations.
 - [ ] Guest-mode privacy and fiqh editorial gating represented.
 - [ ] PR contains only planned documentation changes and no credentials.
+
+---
+
+## Phase 0 design reconciliation (2026-11-19)
+- P00-05: [PR #14](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/14) merged, all three CI jobs succeeded; ADR, ERD and static RLS design accepted as design baseline under owner delegation. Not a Supabase migration or live authorization test.
+- P00-03: [PR #16](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/16) merged after brand-validator, Flutter and Android build jobs succeeded. Editing master SVG and Android resources available; outstanding visual owner approval and official trademark/store/name check are explicit blockers to `DONE`.
