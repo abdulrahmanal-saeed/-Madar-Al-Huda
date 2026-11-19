@@ -4,6 +4,26 @@ Implementation updates must include: task ID, branch, changed files, commands/te
 
 ---
 
+## 2026-11-19 — P00-09 / MHD-007: QA rules, Definition of Done, PR template
+
+| Field | Value |
+|---|---|
+| Task | `P00-09` — `REVIEW` (not merged) |
+| Branch | `phase-00/p00-09-qa-dod`, **stacked on PR #4** (`claude/serene-galileo-f2ia01`), because it builds on that CI and edits the same tracker/AI_BRIDGE files. Merge #4 first, then retarget to `main`. |
+| Approval | Owner approved starting P00-09 in a separate branch/PR. Dependency `P00-05` (architecture approval) is still `TODO`, so the DoD is marked *proposed* and will be revised if P00-05 changes the rules. |
+
+**Summary**
+- `plan/DEFINITION_OF_DONE.md`: status-transition rules (TODO → IN_PROGRESS → REVIEW → DONE / BLOCKED), plus done checklists per task type: all tasks, app code, religious content, calculations, docs and release. Also covers automated gates (it *references* the three existing CI jobs and adds none), required reviews and what counts as evidence, and severity and merge rules. It notes an owner action: protect `main` and require the three checks plus one review.
+- `docs/QA_CHECKLIST.md`: manual QA sections A–H (install/launch offline with no permission prompt, language and RTL, navigation and state, theme/motion/text size, TalkBack, content integrity, privacy/permissions, persistence robustness), a results-table format, and the Phase 0 gate 1 sign-off.
+- `.github/pull_request_template.md`: task/tracker fields, an evidence table ("commands actually run"), screenshots, manual QA, the DoD checklist, a religious-content gate, risks, and reviewer notes.
+- Linked from `plan/WORKFLOW.md`, `plan/TEST_STRATEGY.md` and `plan/README.md`; tracker, changelog, TASKS (MHD-007) and REVIEW checklist updated.
+
+**Not duplicated:** the secret scan, policy checks, format/analyze/test and APK build stay only in `.github/workflows/mobile-ci.yml`.
+
+**Commands run:** documentation-only change, so no app tests were needed. I checked that every relative link in the changed Markdown files resolves (script output below), that the CI job names in DoD §3 match the workflow file, and ran gitleaks (`git` and `dir`: no leaks). CI will run on the PR because the branch contains `apps/mobile`.
+
+---
+
 ## 2026-11-19 — P00-06 review fix: settings persistence race (PR #4)
 
 | Field | Value |

@@ -1,5 +1,8 @@
 # Plan Changelog
 
+## 2026-11-19 — P00-09 QA rules & Definition of Done
+- `P00-09` → `REVIEW`: [DEFINITION_OF_DONE.md](DEFINITION_OF_DONE.md) (انتقالات الحالة، قوائم الإنجاز حسب نوع المهمة، بوابات CI الحالية، المراجعات والأدلة، الخطورة)، و`docs/QA_CHECKLIST.md`، و`.github/pull_request_template.md`. لا يضيف CI جديدًا.
+
 ## 2026-11-19 — P00-06 implementation
 - `P00-06` → `REVIEW`: Flutter skeleton في `apps/mobile` مع AR/EN وRTL/LTR وخمس وجهات تنقل وشاشات أقسام محجوبة المحتوى، وثيمات فاتح/داكن، وتفضيلات محلية، و81 اختبارًا، وGitHub Actions CI.
 - قرارات مقترحة جديدة D-12 إلى D-16 في [DECISIONS.md](DECISIONS.md).

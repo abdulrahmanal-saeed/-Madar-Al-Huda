@@ -11,6 +11,7 @@ Project-level roadmap and statuses: [../plan/README.md](../plan/README.md) and [
 | MHD-004 | Quran reader wireframes and palette QA | Design lead | TODO | RTL/LTR, contrast and responsive review |
 | MHD-005 | Verify reciter and tafsir distribution rights | Content lead | BLOCKED | 3 reciters and 2 tafsir sources assessed |
 | MHD-006 | Define fiqh reviewer workflow | Content lead | BLOCKED | Qualified reviewer and approval gates documented |
+| MHD-007 | QA rules, Definition of Done, PR template (`P00-09`) | Coding agent (Claude Code) | REVIEW | DoD per task type, manual QA checklist, PR template; no duplicate CI — branch `phase-00/p00-09-qa-dod`, stacked on PR #4 |
 
 ## Execution rules
 - Explicit owner, branch, tests and reviewer comments for each task.

@@ -1,0 +1,120 @@
+# Definition of Done & Quality Gates — P00-09
+
+> **تعريف الإنجاز:** لا تصبح مهمة `DONE` في [TRACKER.md](TRACKER.md) إلا بعد استيفاء كل البنود المطلوبة لنوعها أدناه، مع دليل قابل للتحقق. نجاح البرمجة وحده لا يكفي للمحتوى الديني.
+
+This document is the single checklist behind `DONE`. It turns
+[WORKFLOW.md](WORKFLOW.md) and [TEST_STRATEGY.md](TEST_STRATEGY.md) into gates that
+a reviewer can verify. The PR template (`.github/pull_request_template.md`) and the
+manual QA checklist ([../docs/QA_CHECKLIST.md](../docs/QA_CHECKLIST.md)) apply it.
+
+Status: **proposed** (P00-09). It depends on P00-05 (architecture approval), which is
+still open, and will be revised if that approval changes the module or data rules.
+
+---
+
+## 1. Status transitions
+
+| From → To | Required |
+|---|---|
+| `TODO` → `IN_PROGRESS` | Dependencies are `DONE`, **or** the PR records why it proceeds provisionally (owner decision, e.g. D-16). Branch exists. Tracker row updated in the PR. |
+| `IN_PROGRESS` → `REVIEW` | PR open with the template filled in; all automated gates (§3) are green on the **latest head commit**; `AI_BRIDGE/IMPLEMENTATION.md` updated. |
+| `REVIEW` → `DONE` | Every applicable item in §2 is checked; required reviews are recorded (§4); no unresolved **blocking** finding; PR **merged**; tracker row links the merged PR and the evidence. |
+| any → `BLOCKED` | Linked to a risk ID in [RISKS_AND_BLOCKERS.md](RISKS_AND_BLOCKERS.md), naming the evidence or approval that would unblock it. |
+
+`DONE` is never set in the same commit that opens a PR. A merged documentation file
+does not make a feature done.
+
+## 2. Done checklists by task type
+
+A PR may cover several types; apply every matching list.
+
+### 2.1 All tasks
+- [ ] Acceptance criteria from the phase file are met, each with evidence.
+- [ ] Commands listed as run were actually run; their results are pasted or linked. Nothing is reported as passing without output.
+- [ ] Tracker row, `AI_BRIDGE/IMPLEMENTATION.md`, and (if decisions changed) `DECISIONS.md` are updated in the same PR.
+- [ ] Known limitations and anything left unverified are listed.
+- [ ] No secrets, keystores, credentials or personal data are committed (gitleaks is green).
+
+### 2.2 App code (`apps/mobile`)
+- [ ] Automated gates in §3 are green on the latest head.
+- [ ] New logic has unit tests, and new screens or flows have widget tests, in **both Arabic (RTL) and English (LTR)** where text or layout changes.
+- [ ] Error, empty and loading states are handled; nothing crashes on missing or corrupt local data.
+- [ ] Async state: overlapping user actions can't lose or reorder persisted data. Deterministic tests are required where writes overlap (see the P00-06 settings fix).
+- [ ] No hard-coded user-facing strings; ARB keys are present in both languages.
+- [ ] Directional icons and padding mirror in RTL (`EdgeInsetsDirectional`, `matchTextDirection`).
+- [ ] Accessibility: semantics labels on custom tappables, touch targets ≥ 48 dp, readable at 2× text scale, WCAG AA contrast for new colour pairs.
+- [ ] No new permission, network call, ad, analytics or tracking SDK unless approved; `tool/policy_checks.sh` allow-lists are updated with a decision ID when approved.
+- [ ] Dependencies are pinned exactly, with lockfile changes reviewed.
+- [ ] UI changes: screenshots in AR/EN × light/dark are attached to the PR.
+- [ ] The manual QA checklist sections relevant to the change are completed (§5).
+
+### 2.3 Religious content (Quran, tafsir, translation, hadith, fiqh, adhkar, stories, quotes)
+Code readiness never substitutes for these. Every item is **mandatory**.
+- [ ] Source, edition, rights holder, licence or permission evidence, and attribution are recorded in `docs/CONTENT_SOURCES.md` (register fields complete).
+- [ ] Offline, caching and redistribution scope is confirmed in writing for this exact use.
+- [ ] Quran text: the edition is immutable, the checksum matches, and the surah and ayah counts are verified automatically. No normalisation of stored display text.
+- [ ] Hadith: collection, reference and grading **with grader** are recorded; no ungraded claim of authenticity.
+- [ ] Fiqh and stories: a **qualified scholarly reviewer** is named with the approval date (P00-08). Every madhhab view has a citation, and no consensus is claimed where coverage is missing.
+- [ ] Translations: language review is done independently for each language.
+- [ ] The section's `ContentStatus` is changed to `available` **only** in the same PR that links all of the above, and the content-gating test allow-list is updated in that PR.
+- [ ] A correction and withdrawal path exists for the published item.
+
+### 2.4 Calculations (prayer times, Qibla)
+- [ ] The parameters (method, Asr school, high-latitude rule, adjustments) are documented with their source.
+- [ ] Fixtures for Dubai, Abu Dhabi, Cairo and Alexandria come from **official published references**, cited with retrieval date. Expected values are never generated by the code under test.
+- [ ] DST and time-zone transitions are tested (Egypt observes DST; the UAE does not).
+- [ ] The tolerance is stated and justified; failures show a clear message in the UI with a manual city fallback.
+
+### 2.5 Documentation-only
+- [ ] The change matches the code and tracker it describes; links resolve.
+- [ ] No status is upgraded on the strength of the document alone.
+
+### 2.6 Release builds (Phase 06)
+- [ ] Release signing keys are outside the repo; the build is reproducible from a tagged commit.
+- [ ] The Data Safety form and privacy statement match the actual permissions and SDKs.
+- [ ] Upgrade from the previous version preserves local data.
+
+## 3. Automated gates (already in CI — not duplicated here)
+
+Defined in `.github/workflows/mobile-ci.yml` (added in P00-06). This DoD only requires
+them to be **green on the latest head commit**:
+
+| CI job | Covers |
+|---|---|
+| **Secrets & policy** | gitleaks over full history; `apps/mobile/tool/policy_checks.sh`: no ads/analytics/tracking SDKs, main-manifest permission allow-list, exact version pins, no keystores or credential files |
+| **Format, analyze & test** | `pub get --enforce-lockfile`, generated l10n up to date, `dart format`, `flutter analyze --fatal-infos`, `flutter test --coverage` (coverage artifact) |
+| **Android debug build** | `flutter build apk --debug` and APK artifact with SHA-256 |
+
+**Owner action (repository settings, not code):** protect `main` and require these
+three checks plus one approving review before merge. Until that is configured,
+reviewers must check the run themselves before approving.
+
+## 4. Reviews and evidence
+
+| Change touches | Required review | Recorded in |
+|---|---|---|
+| Any code | Independent code review (human or AI reviewer distinct from the author) | PR review or `AI_BRIDGE/REVIEW.md` |
+| Arabic or English copy | Language review for that language | `AI_BRIDGE/REVIEW.md` |
+| Religious content | Source verifier + qualified scholarly reviewer (+ language reviewer) | `docs/CONTENT_SOURCES.md`, governance log |
+| Permissions, privacy, data | Owner approval with decision ID | `plan/DECISIONS.md` |
+
+**What counts as evidence:** a link to a CI run on the head SHA; pasted command output;
+screenshots; a reviewer's comment or approval; a licence document or email reference
+(stored outside the public repo if confidential, referenced by ID).
+
+**What does not count:** "should work", a run on an older commit, an AI model's
+statement that content is authentic, or public availability of a text or recording.
+
+## 5. Manual QA
+
+Manual checks that CI can't run are in [../docs/QA_CHECKLIST.md](../docs/QA_CHECKLIST.md).
+A PR lists the sections it completed and their results. Gate 1 of Phase 0
+(both locales verified on an emulator or device) is checked there.
+
+## 6. Severity
+
+| Severity | Meaning | Merge? |
+|---|---|---|
+| **Blocking** | Wrong or unlicensed religious content; data loss; crash on a main path; secret leak; failing gate; incorrect prayer time | No |
+| **High** | Broken RTL/LTR layout, inaccessible main flow, missing error state | No, unless the owner records an exception with a follow-up task |
+| **Medium / Low** | Polish, minor copy, refactors | Yes, with a follow-up task or issue |

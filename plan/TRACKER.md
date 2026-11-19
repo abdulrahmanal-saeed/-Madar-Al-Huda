@@ -1,6 +1,6 @@
 # Tracker — مصدر الحقيقة لحالة العمل
 
-**Snapshot بتاريخ 2026-11-19:** Phase 00 IN_PROGRESS. عدد المهام 58، منها 2 DONE (الاسم/الوثائق المدمجة)، و1 REVIEW (`P00-06`)، و13 BLOCKED بسبب متطلبات لم تتحقق بعد. الحالة تتغير عبر PRs وليست متابعة تلقائية.
+**Snapshot بتاريخ 2026-11-19:** Phase 00 IN_PROGRESS. عدد المهام 58، منها 2 DONE (الاسم/الوثائق المدمجة)، و2 REVIEW (`P00-06`، `P00-09`)، و13 BLOCKED بسبب متطلبات لم تتحقق بعد. الحالة تتغير عبر PRs وليست متابعة تلقائية.
 
 **Status:** `TODO` · `IN_PROGRESS` · `BLOCKED` · `REVIEW` · `DONE` · `DEFERRED` · `CANCELLED`.
 
@@ -27,7 +27,7 @@
 | `P00-06` | Flutter skeleton + Android CI | `REVIEW` | P00-03,P00-05 | Issue #2 / MHD-001 · branch `claude/serene-galileo-f2ia01` · [PR #4](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/4) (draft). بُني على Tokens وهوية **مؤقتة** ومعمارية **مقترحة** بقرار المالك حتى لا تتعطل الهندسة؛ لا يثبّت شيئًا من P00-03/P00-05 (D-16). |
 | `P00-07` | تحقيق حقوق مصادر المصحف والتفسير والصوت | `BLOCKED` | P00-01 | — |
 | `P00-08` | تعيين مراجع شرعي مؤهل للفقه | `BLOCKED` | P00-01 | — |
-| `P00-09` | قواعد QA وDefinition of Done | `TODO` | P00-05 | — |
+| `P00-09` | قواعد QA وDefinition of Done | `REVIEW` | P00-05 | branch `phase-00/p00-09-qa-dod` · PR (stacked on PR #4) — [DEFINITION_OF_DONE.md](DEFINITION_OF_DONE.md)، [QA_CHECKLIST](../docs/QA_CHECKLIST.md)، PR template. بُني مؤقتًا قبل اعتماد P00-05 بموافقة المالك. |
 | `P00-10` | Prayer fixtures للإمارات ومصر | `TODO` | P00-05 | — |
 
 ## Phase 01 — Quran & Prayer MVP — المصحف والصلاة والقبلة

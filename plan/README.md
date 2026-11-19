@@ -22,6 +22,7 @@
 | [PHASE_04_ACADEMY.md](PHASE_04_ACADEMY.md) | الدروس والقصص والمقالات ولوحة المحتوى |
 | [PHASE_05_BETA.md](PHASE_05_BETA.md) | الأمان والاختبارات والتجربة المغلقة |
 | [PHASE_06_RELEASE.md](PHASE_06_RELEASE.md) | النشر والتشغيل والاستعداد لـ iOS |
+| [DEFINITION_OF_DONE.md](DEFINITION_OF_DONE.md) | تعريف الإنجاز وبوابات الجودة والأدلة المطلوبة لكل نوع مهمة |
 | [CHANGELOG.md](CHANGELOG.md) | تغييرات الخطة |
 
 ## الثوابت

@@ -22,3 +22,5 @@
 - عند كل PR: اختبارات وتغييرات وثائق وقائمة مخاطر. هدف تغطية المنطق الأساسي 80% مش بديل عن اختبار الميزات الحقيقية.
 
 **Gate قبل Production:** صفر أعطال حرجة/عالية مفتوحة، صفر أخطاء قرآنية معروفة، صفر مواد منشورة غير مرخصة، مراجعة بشرية مكتملة للمحتوى الشرعي المطلوب.
+
+**Gates per PR:** see [DEFINITION_OF_DONE.md](DEFINITION_OF_DONE.md) (automated CI gates + manual [QA checklist](../docs/QA_CHECKLIST.md)).
