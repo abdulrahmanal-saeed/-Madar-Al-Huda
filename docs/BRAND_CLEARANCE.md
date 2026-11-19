@@ -11,6 +11,6 @@ The original open-book/orbit artwork and IBM Plex Sans Arabic OFL-1.1 typeface l
 ## Official starting points for clearance (identified 2026-11-19)
 - UAE Ministry of Economy & Tourism — [Enquire About Registration of Trademarks](https://www.moet.gov.ae/en/web/guest/w/enquire-about-registration-of-trademarks): official application for searching proposed/similar marks. Even an enquiry result does **not** guarantee acceptance.
 - WIPO — [Global Brand Database](https://www.wipo.int/en/web/global-brand-database/index): international cross-database search. WIPO recommends searching national/regional registries separately too.
-- Egypt — [Egyptian Patent Office](https://www.egypo.gov.eg/): official source for trademark publications and relevant inquiries; procedure and current results still must be independently confirmed.
+- Egypt — [WIPO Egypt country IP profile](https://www.wipo.int/en/web/country-profiles/eg): identifies Egypt's trademark and industrial-design authority and relevant national registry resources. The Egyptian Patent Office is **not** a substitute for a trademark clearance enquiry. Obtain the current official trademark-office search or qualified local counsel's result before approval.
 
 **No enquiry was submitted and no official clearance result was retrieved** in this task; status remains PENDING.
