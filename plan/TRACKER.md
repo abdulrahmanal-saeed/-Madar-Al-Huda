@@ -23,7 +23,7 @@
 | `P00-02` | دمج مستندات التأسيس على main | `DONE` | P00-01 | PR #1 |
 | `P00-03` | الهوية النهائية وفحص الاسم والعلامة | `TODO` | P00-01 | — |
 | `P00-04` | Wireframes عربية وإنجليزية | `TODO` | P00-03 | — |
-| `P00-05` | اعتماد ERD والمعمارية وRLS | `TODO` | P00-01 | — |
+| `P00-05` | اعتماد ERD والمعمارية وRLS | `REVIEW` | P00-01 | [Issue #13](https://github.com/abdulrahmanal-saeed/madar-al-huda/issues/13) · architecture ADR, ERD, RLS matrix, SQL reference blueprint, threat model in `docs/architecture/`; **awaits independent review / merge; no live database migration** |
 | `P00-06` | Flutter skeleton + Android CI | `REVIEW` | P00-03,P00-05 | Issue #2 / MHD-001 · branch `claude/serene-galileo-f2ia01` · [PR #4](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/4) **merged**. الاختبارات الآلية ناجحة؛ اختبار Android على جهاز/محاكي بالعربية والإنجليزية، ومراجعة TalkBack والنص العربي لا تزال مطلوبة قبل إغلاق المهمة. بُني على Tokens وهوية **مؤقتة** ومعمارية **مقترحة** بقرار المالك حتى لا تتعطل الهندسة؛ لا يثبّت شيئًا من P00-03/P00-05 (D-16). |
 | `P00-07` | تحقيق حقوق مصادر المصحف والتفسير والصوت | `BLOCKED` | P00-01 | — |
 | `P00-08` | تعيين مراجع شرعي مؤهل للفقه | `BLOCKED` | P00-01 | — |

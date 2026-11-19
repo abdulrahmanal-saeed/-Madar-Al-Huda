@@ -1,4 +1,6 @@
-# Technical architecture (proposed; mobile shell implemented in P00-06)
+# Technical architecture — P00-05 design baseline (mobile shell P00-06 implemented)
+
+**Reviewed architecture pack:** [docs/architecture/README.md](architecture/README.md). This design establishes the trust boundaries, ERD, role matrix, and versioned data invariants, but has not been deployed to any Supabase project.
 
 ## Monorepo
 `apps/mobile` Flutter + Dart; `apps/admin` Next.js CMS; `backend` protected provider API; `supabase` schema/migrations; `docs` and `AI_BRIDGE`.

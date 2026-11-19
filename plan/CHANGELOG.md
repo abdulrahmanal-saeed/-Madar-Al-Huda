@@ -1,5 +1,8 @@
 # Plan Changelog
 
+## 2026-11-19 — P00-05 architecture baseline proposed
+- وثائق ADR/ERD/RLS/Threat model + SQL blueprint مرجعي، دون تشغيل قاعدة بيانات أو إضافة أسرار. الحالة REVIEW لحين المراجعة والدمج.
+
 ## 2026-11-19 — Merge reconciliation
 - [PR #4](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/4), [PR #5](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/5) و[PR #6](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/6) دُمجت في main بناءً على طلب المالك، بعد مراجعة الفروقات ونتائج CI على رؤوس PRs.
 - `P00-09` DONE (التوثيق وقواعد الجودة دُمجت). `P00-06` REVIEW لحين فحص جهاز/محاكي باللغتين وAccessibility/copy. `P00-11` REVIEW لحين تفعيل أسرار توقيع التطوير وتجربة prerelease وتحديث Obtainium.

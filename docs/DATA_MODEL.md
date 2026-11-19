@@ -1,4 +1,6 @@
-# Data model v0.1 — conceptual schema
+# Data model v0.2 — conceptual schema / P00-05
+
+**Concrete review contract:** [architecture/ERD.md](architecture/ERD.md) and [architecture/SCHEMA_BLUEPRINT.sql](architecture/SCHEMA_BLUEPRINT.sql). The original model below remains the phase-wide domain inventory; the blueprint represents only baseline high-risk entities.
 
 Schema is provisional; actual SQL migrations must be tested and include RLS/indexes.
 

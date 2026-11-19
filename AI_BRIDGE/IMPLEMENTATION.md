@@ -4,6 +4,14 @@ Implementation updates must include: task ID, branch, changed files, commands/te
 
 ---
 
+## 2026-11-19 — P00-05 / MHD-009: architecture design and security contract
+- Prepared ADR-0001, ERD, RLS policy matrix, threat model, reference SQL blueprint (not a migration), and links to existing Flutter shell / edition-aware AyahRef.
+- Verified Supabase RLS and API-security docs plus November 2026 changelog (supabase-flutter v3). No Supabase version pinned or deployment performed.
+- Review required: check projection publishing rules, composite verse references, RLS grants, ownership checks, future migration/test plan. No live SQL, pgTAP or device tests claimed.
+- Issue #13. See `docs/architecture/README.md` and the P00-05 PR.
+
+---
+
 ## 2026-11-19 — P00-11 / MHD-008: automatic updates for dev builds (Obtainium)
 
 | Field | Value |
