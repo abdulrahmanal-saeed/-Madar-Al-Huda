@@ -1,5 +1,8 @@
 # Plan Changelog
 
+## 2026-11-19 — P00-03 brand assets
+- Original SVG mark + AR/EN wordmark, native Android vector/mono, 5 PNG sizes, token JSON and CI verification. Creative identity ready for review; trademark and owner signoff not claimed.
+
 ## 2026-11-19 — P00-05 architecture baseline proposed
 - وثائق ADR/ERD/RLS/Threat model + SQL blueprint مرجعي، دون تشغيل قاعدة بيانات أو إضافة أسرار. الحالة REVIEW لحين المراجعة والدمج.
 

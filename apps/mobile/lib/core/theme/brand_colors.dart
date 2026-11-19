@@ -2,7 +2,7 @@ import 'package:material_ui/material_ui.dart';
 
 /// Brand palette from `docs/BRAND.md`.
 ///
-/// Status: provisional identity. Final tokens are owned by task P00-03.
+/// P00-03 selected creative direction; owner aesthetic and trademark signoff remain pending.
 /// Gold is an accent colour: it does not reach text contrast on ivory, so it
 /// must never be used for body text on light surfaces (see contrast tests).
 abstract final class BrandColors {

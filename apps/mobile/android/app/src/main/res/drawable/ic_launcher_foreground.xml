@@ -1,26 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- PROVISIONAL mark: a gold orbit around an open book (no text or sacred
-     script inside the icon, per docs/BRAND.md). Safe zone: 66dp circle. -->
+<!-- P00-03: original open-book orbit mark. The 108dp adaptive artboard keeps key details inside safe area. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="108dp"
-    android:height="108dp"
-    android:viewportWidth="108"
-    android:viewportHeight="108">
-    <!-- Orbit -->
-    <path
-        android:strokeColor="#C7A86D"
-        android:strokeWidth="2.5"
-        android:fillColor="#00000000"
-        android:pathData="M27,54 a27,27 0 1,0 54,0 a27,27 0 1,0 -54,0" />
-    <!-- Orbiting point -->
-    <path
-        android:fillColor="#D9BE85"
-        android:pathData="M70.1,34.9 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" />
-    <!-- Open book: two pages -->
-    <path
-        android:fillColor="#F8F5ED"
-        android:pathData="M53,45.5 C47.5,41.8 41,40.6 35,41.2 L35,65.4 C41,64.9 47.5,66 53,69.6 Z" />
-    <path
-        android:fillColor="#F8F5ED"
-        android:pathData="M55,45.5 C60.5,41.8 67,40.6 73,41.2 L73,65.4 C67,64.9 60.5,66 55,69.6 Z" />
+ android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+ <path android:strokeColor="#C7A86D" android:strokeWidth="3.2"
+   android:strokeLineCap="round" android:fillColor="#00000000"
+   android:pathData="M22,61 C18,51 32,34 53,27 C75,20 92,31 92,44 C92,52 86,58 80,63"/>
+ <path android:fillColor="#C7A86D"
+   android:pathData="M21,75 Q37,70 53,84 Q69,70 86,75 L83,80 Q65,77 53,90 Q41,78 24,80Z"/>
+ <path android:fillColor="#F8F5ED"
+   android:pathData="M52,52 Q40,41 28,43 L24,72 Q41,68 52,82Z"/>
+ <path android:fillColor="#F8F5ED"
+   android:pathData="M56,52 Q68,41 80,43 L84,72 Q67,68 56,82Z"/>
 </vector>

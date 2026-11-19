@@ -7,6 +7,7 @@ Project-level roadmap and statuses: [../plan/README.md](../plan/README.md) and [
 | MHD-000 | Establish repo and specification baseline | ChatGPT | DONE | Docs, branch, PR exist and links verified |
 | MHD-001 | Build Flutter Android skeleton with Arabic/English (`P00-06`) | Coding agent (Claude Code) | REVIEW | Debug build, navigation, RTL/LTR smoke tests — implemented on branch `claude/serene-galileo-f2ia01`, [PR #4](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/4) merged. Pending device/emulator AR/EN and TalkBack/copy checks; see IMPLEMENTATION.md |
 | MHD-009 | Architecture/ERD/RLS design review (`P00-05`) | ChatGPT | REVIEW | [Issue #13](https://github.com/abdulrahmanal-saeed/madar-al-huda/issues/13); architecture pack, no database deployment; independent review pending |
+| MHD-010 | Identity source and launcher assets (`P00-03`) | ChatGPT | REVIEW | [Issue #15](https://github.com/abdulrahmanal-saeed/madar-al-huda/issues/15), SVG/wordmarks, Android icons, license and brand CI; visual + clearance approvals pending |
 | MHD-002 | Verify Quran source and legal edition | Content lead | BLOCKED | Rights log, attribution, fixed checksum |
 | MHD-003 | Prototype prayer time + Qibla calculation | Coding agent | TODO | UAE/Egypt fixtures + timezone/DST tests |
 | MHD-004 | Quran reader wireframes and palette QA | Design lead | TODO | RTL/LTR, contrast and responsive review |
