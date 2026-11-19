@@ -33,7 +33,7 @@ for density,size in [('mdpi',48),('hdpi',72),('xhdpi',96),('xxhdpi',144),('xxxhd
         assert checksum == zlib.crc32(typ+payload) & 0xffffffff, (p,typ)
         if typ == b'IHDR':
             assert length == 13, p
-            assert payload[8:13] == b'\\x08\\x02\\x00\\x00\\x00', p
+            assert payload[8:13] == b'\x08\x02\x00\x00\x00', p
             seen_ihdr = True
         if typ == b'IDAT':
             idat.extend(payload)
