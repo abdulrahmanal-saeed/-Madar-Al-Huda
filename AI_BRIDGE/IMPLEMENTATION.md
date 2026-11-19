@@ -8,6 +8,7 @@ Implementation updates must include: task ID, branch, changed files, commands/te
 
 | Field | Value |
 |---|---|
+| PR | [#6](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/6) (draft) |
 | Task | `P00-11` (new; owner request on 2026-11-19: "make it update automatically so I don't download a new APK every time") — `REVIEW` |
 | Branch | `phase-00/p00-11-dev-updates`, **stacked on PR #5** (which is stacked on #4). Merge order: #4 → #5 → this. |
 | Decision | D-17. The owner chose Obtainium + GitHub Releases over Shorebird and an in-app updater, so the app needs no new permissions or SDKs. |

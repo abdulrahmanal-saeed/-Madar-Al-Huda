@@ -29,7 +29,7 @@
 | `P00-08` | تعيين مراجع شرعي مؤهل للفقه | `BLOCKED` | P00-01 | — |
 | `P00-09` | قواعد QA وDefinition of Done | `REVIEW` | P00-05 | branch `phase-00/p00-09-qa-dod` · [PR #5](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/5) (draft, stacked on PR #4) — [DEFINITION_OF_DONE.md](DEFINITION_OF_DONE.md)، [QA_CHECKLIST](../docs/QA_CHECKLIST.md)، PR template. بُني مؤقتًا قبل اعتماد P00-05 بموافقة المالك. |
 | `P00-10` | Prayer fixtures للإمارات ومصر | `TODO` | P00-05 | — |
-| `P00-11` | قناة تحديث نسخ التطوير (APK موقّع + Obtainium) | `REVIEW` | P00-06 | طلب المالك 2026-11-19 · branch `phase-00/p00-11-dev-updates` · PR (stacked on PR #5) · [DEV_UPDATES.md](../docs/DEV_UPDATES.md) · D-17. يحتاج 3 GitHub secrets من المالك ودمج إلى `main` ليعمل. |
+| `P00-11` | قناة تحديث نسخ التطوير (APK موقّع + Obtainium) | `REVIEW` | P00-06 | طلب المالك 2026-11-19 · branch `phase-00/p00-11-dev-updates` · [PR #6](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/6) (draft, stacked on PR #5) · [DEV_UPDATES.md](../docs/DEV_UPDATES.md) · D-17. يحتاج 3 GitHub secrets من المالك ودمج إلى `main` ليعمل. |
 
 ## Phase 01 — Quran & Prayer MVP — المصحف والصلاة والقبلة
 
