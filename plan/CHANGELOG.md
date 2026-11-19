@@ -1,5 +1,10 @@
 # Plan Changelog
 
+## 2026-11-19 — Merge reconciliation
+- [PR #4](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/4), [PR #5](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/5) و[PR #6](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/6) دُمجت في main بناءً على طلب المالك، بعد مراجعة الفروقات ونتائج CI على رؤوس PRs.
+- `P00-09` DONE (التوثيق وقواعد الجودة دُمجت). `P00-06` REVIEW لحين فحص جهاز/محاكي باللغتين وAccessibility/copy. `P00-11` REVIEW لحين تفعيل أسرار توقيع التطوير وتجربة prerelease وتحديث Obtainium.
+- لا يُفهم دمج كود التطوير على أنه اكتمال بوابات Phase 00 أو ترخيص نصوص دينية.
+
 ## 2026-11-19 — P00-11 dev update channel
 - مهمة جديدة `P00-11` بطلب المالك: workflow `dev-release.yml` ينشر APK تطوير موقّع بعد نجاح CI على `main`، والتحديث عبر Obtainium. Phase 00 أصبحت 11 مهمة (المجموع 59). قرار D-17.
 
