@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Zero-dependency brand CI check. Run from project root."""
 from pathlib import Path
-import json, re, struct, xml.etree.ElementTree as ET
+import json, re, struct, zlib, xml.etree.ElementTree as ET
 root = Path(__file__).resolve().parents[2]
 d = root / 'design/brand'
 res = root / 'apps/mobile/android/app/src/main/res'
@@ -21,4 +21,27 @@ for density,size in [('mdpi',48),('hdpi',72),('xhdpi',96),('xxhdpi',144),('xxxhd
     data=(res / ('mipmap-'+density) / 'ic_launcher.png').read_bytes()
     assert data[:8] == b'\x89PNG\r\n\x1a\n'
     assert struct.unpack('>II',data[16:24]) == (size,size)
-print('Brand palette, vectors, font license and five legacy icon densities verified.')
+    # Validate every chunk CRC and the actual decoded pixel stream.
+    pos = 8
+    idat = bytearray()
+    seen_ihdr = False
+    while pos < len(data):
+        length = struct.unpack('>I',data[pos:pos+4])[0]
+        typ = data[pos+4:pos+8]
+        payload = data[pos+8:pos+8+length]
+        checksum = struct.unpack('>I',data[pos+8+length:pos+12+length])[0]
+        assert checksum == zlib.crc32(typ+payload) & 0xffffffff, (p,typ)
+        if typ == b'IHDR':
+            assert length == 13, p
+            assert payload[8:13] == b'\\x08\\x02\\x00\\x00\\x00', p
+            seen_ihdr = True
+        if typ == b'IDAT':
+            idat.extend(payload)
+        pos += 12+length
+        if typ == b'IEND':
+            break
+    assert seen_ihdr and pos == len(data), p
+    pixels = zlib.decompress(bytes(idat))
+    assert len(pixels) == size*(1+3*size), p
+    assert all(pixels[row*(1+3*size)] == 0 for row in range(size)), p
+print('Brand palette, vectors, font license, PNG CRC/decompression and densities verified.')
