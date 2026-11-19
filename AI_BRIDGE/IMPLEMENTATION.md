@@ -12,7 +12,7 @@ Implementation updates must include: task ID, branch, changed files, commands/te
 | Status | `REVIEW` — PR open, not merged |
 | Branch | `claude/serene-galileo-f2ia01` (session-assigned branch; `plan/WORKFLOW.md` suggests `phase-00/p00-06-…`) |
 | Agent | Claude Code (coding agent) |
-| PR | See the PR opened from this branch (link recorded in the PR body and the tracker after creation) |
+| PR | [#4](https://github.com/abdulrahmanal-saeed/madar-al-huda/pull/4) (draft) |
 
 ### Dependency note
 `P00-06` depends on `P00-03` (final identity) and `P00-05` (ERD/architecture approval), both still `TODO`. Per the owner's instruction, the skeleton was built on the **provisional** tokens in `docs/BRAND.md` and the **proposed** architecture in `docs/ARCHITECTURE.md` (decision D-16). Colours, font, launcher icon and app ID are isolated in `lib/core/theme/`, `android/app/src/main/res/` and `build.gradle.kts`, so finalising P00-03/P00-05 does not require restructuring.
